@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handball4RO - Autentificare</title>
+
+    <link rel="icon" type="image" href="images/handball4ro.jpeg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container justify-content-center justify-content-lg-between">
+            <a class="navbar-brand fw-bold" href="home.html">Handball&#x34;&#xFE0F;&#x20E3;RO</a>
+            <a href="home.html" class="btn btn-outline-light btn-sm d-none d-lg-block">Înapoi la site</a>
+        </div>
+    </nav>
+    <main class="container mt-5 mb-5">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm border-0 rounded-3">
+                    <div class="card-header bg-white border-bottom-0 text-center pt-4 pb-0">
+                        <h3 class="fw-bold">Bine ai revenit!</h3>
+                        <p class="text-muted">Introdu datele pentru a accesa contul.</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="profil.html" method="GET">
+
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label fw-bold">Adresă de Email</label>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="nume@exemplu.ro"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <label for="loginParola" class="form-label fw-bold">Parolă</label>
+                                    <a href="#" class="small text-decoration-none">Ai uitat parola?</a>
+                                </div>
+                                <input type="password" class="form-control" id="loginParola" required>
+                            </div>
+
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="tineMinte">
+                                <label class="form-check-label text-muted small" for="tineMinte">Păstrează-mă
+                                    autentificat</label>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg fw-bold">Intră în cont</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="card-footer bg-light text-center py-3 border-top-0">
+                        <span class="text-muted">Nu ai încă un cont?</span>
+                        <a href="register.html" class="fw-bold text-decoration-none">Înregistrează-te</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

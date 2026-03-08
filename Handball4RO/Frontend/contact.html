@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handball4RO - Contact</title>
+
+    <link rel="icon" type="image" href="images/handball4ro.jpeg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html">Handball&#x34;&#xFE0F;&#x20E3;RO</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+                aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stiri.html">Știri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="competitii.html">Competiții</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistici.html">Statistici</a></li>
+                    <li class="nav-item"><a class="nav-link" href="astazi.html">Astăzi 📅</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cautare.html">Căutare 🔍</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact
+                            📞</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-light me-2 fw-bold">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-bold">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container mt-5 mb-5">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-6">Ai întrebări? Contactează-ne!</h2>
+            <p class="text-muted lead">Suntem aici pentru a te ajuta cu orice informație legată de competițiile de
+                handbal.</p>
+        </div>
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0 h-100 rounded-3">
+                    <div class="card-body p-4 p-md-5 bg-dark text-white rounded-3">
+                        <h4 class="fw-bold mb-4">Informații de Contact</h4>
+                        <p class="mb-4 text-white-50">Completează formularul alăturat sau folosește datele de mai jos
+                            pentru a lua legătura direct cu echipa Handball4RO.</p>
+
+                        <ul class="list-unstyled mb-5">
+                            <li class="d-flex mb-3 align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px;">📍</div>
+                                <span>Strada Sportului, nr. 10, Craiova, România</span>
+                            </li>
+                            <li class="d-flex mb-3 align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px;">📞</div>
+                                <span>+40 123 456 789</span>
+                            </li>
+                            <li class="d-flex mb-3 align-items-center">
+                                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 40px; height: 40px;">✉️</div>
+                                <span>contact@handball4ro.ro</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-auto">
+                            <h6 class="text-uppercase fw-bold text-white-50 mb-3">Program de lucru</h6>
+                            <p class="mb-0">Luni - Vineri: 09:00 - 17:00</p>
+                            <p>Sâmbătă - Duminică: Închis (Asistență doar pentru meciuri Live)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0 rounded-3 h-100">
+                    <div class="card-body p-4 p-md-5">
+                        <h4 class="fw-bold mb-4">Trimite-ne un mesaj</h4>
+                        <form action="#" method="POST">
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label for="contactNume" class="form-label fw-bold small">Numele tău</label>
+                                    <input type="text" class="form-control" id="contactNume"
+                                        placeholder="Ex: Ion Popescu" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="contactEmail" class="form-label fw-bold small">Adresa de email</label>
+                                    <input type="email" class="form-control" id="contactEmail"
+                                        placeholder="nume@exemplu.ro" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contactSubiect" class="form-label fw-bold small">Subiect</label>
+                                    <select class="form-select" id="contactSubiect" required>
+                                        <option value="" selected disabled>Alege motivul contactării...</option>
+                                        <option value="1">Probleme cu contul / Autentificare</option>
+                                        <option value="2">Corectare rezultat meci</option>
+                                        <option value="3">Înscriere echipă / club</option>
+                                        <option value="4">Parteneriate / Sponsorizări</option>
+                                        <option value="5">Altele</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="contactMesaj" class="form-label fw-bold small">Mesajul tău</label>
+                                    <textarea class="form-control" id="contactMesaj" rows="5"
+                                        placeholder="Scrie aici mesajul tău..." required></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg fw-bold w-100">Trimite
+                                        Mesajul</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="container mt-5 py-3 border-top text-center text-muted">
+        <p>&copy; 2026 Handball4RO. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

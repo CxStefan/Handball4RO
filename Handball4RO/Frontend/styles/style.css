@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Variabile de culori pentru tema "Handball4RO"
+   ========================================================================== */
+:root {
+    --primary-color: rgb(1, 88, 228);
+    /* Culoarea principala a site-ului, folosita pentru butoane, link-uri active si accente */
+    --primary-hover: rgb(1, 59, 194);
+    --dark-bg: #212529;
+    /* Culoarea meniului din Bootstrap */
+}
+
+/* ==========================================================================
+   Modificări Globale
+   ========================================================================== */
+body {
+    /* Culoarea de fundal a intregului site */
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================================================
+   Suprascrierea culorilor Bootstrap (Butoane)
+   ========================================================================== */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+    /* Se ridica putin butonul la hover */
+    box-shadow: 0 4px 8px rgba(11, 0, 160, 0.567);
+}
+
+/* ==========================================================================
+   Efecte pentru Navbar
+   ========================================================================== */
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Efect de subliniere animata la trecerea cu mouse-ul peste link-urile din meniu */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* ==========================================================================
+   Efecte pentru Imagini Si Carduri ( stiri.html si profil.html )
+   ========================================================================== */
+main img {
+    transition: transform 0.4s ease;
+}
+
+main img:hover {
+    transform: scale(1.02);
+    /* Mărește foarte fin imaginea când pui mouse-ul pe ea */
+}
+
+.card-img-top {
+    width: 100%;
+    /* Poza va ocupa mereu toata latimea cardului */
+    height: 220px;
+    /* Setam o inaltime fixa pentru toate pozele */
+    object-fit: cover;
+    object-position: center;
+    /* Fixam centrul imaginii */
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handball4RO - Căutare</title>
+
+    <link rel="icon" type="image" href="images/handball4ro.jpeg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="home.html">Handball&#x34;&#xFE0F;&#x20E3;RO</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+                aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Acasă</a></li>
+                    <li class="nav-item"><a class="nav-link" href="stiri.html">Știri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="competitii.html">Competiții</a></li>
+                    <li class="nav-item"><a class="nav-link" href="statistici.html">Statistici</a></li>
+                    <li class="nav-item"><a class="nav-link" href="astazi.html">Astăzi 📅</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cautare.html">Căutare 🔍</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact 📞</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-light me-2 fw-bold">Login</a>
+                    <a href="register.html" class="btn btn-primary fw-bold">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-white border-bottom py-5 mb-4 shadow-sm">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">Găsește Echipe și Jucători</h2>
+            <p class="text-muted mb-4">Căutare în baza de date cu toate competițiile din România</p>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <form class="d-flex" role="search">
+                        <div class="input-group input-group-lg shadow-sm">
+                            <input type="search" class="form-control" placeholder="Ex: Dinamo, Popescu, Juniori..."
+                                aria-label="Search">
+                            <button class="btn btn-primary px-4" type="submit">Caută</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-3">
+                        <span class="text-muted small me-2">Filtrează după:</span>
+                        <div class="btn-group" role="group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnToate" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-secondary btn-sm" for="btnToate">Toate</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnEchipe" autocomplete="off">
+                            <label class="btn btn-outline-secondary btn-sm" for="btnEchipe">Echipe</label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="btnJucatori" autocomplete="off">
+                            <label class="btn btn-outline-secondary btn-sm" for="btnJucatori">Jucători</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mb-5">
+        <h5 class="mb-4">Rezultate pentru: <span class="text-primary fw-bold">"Dinam"</span> (3 rezultate găsite)</h5>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-danger mb-2 align-self-start">Echipă</span>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px; font-weight: bold;">
+                                DIN
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0 fw-bold">CS Dinamo București</h5>
+                                <small class="text-muted">Liga Zimbrilor</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted small">Campiona en-titre a României la handbal masculin. Echipa
+                            participă și în competițiile europene.</p>
+
+                        <a href="clasamente.html" class="btn btn-outline-primary btn-sm w-100 mt-auto">Vezi detalii
+                            echipă</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-success mb-2 align-self-start">Jucător</span>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px; font-weight: bold;">
+                                ASC
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0 fw-bold">Andrei Dinamo</h5>
+                                <small class="text-muted">Inter Stânga</small>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled small mb-3">
+                            <li><strong>Echipă:</strong> CSM Constanța</li>
+                            <li><strong>Vârstă:</strong> 24 ani</li>
+                            <li><strong>Goluri:</strong> 45 (sezonul actual)</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-outline-success btn-sm w-100 mt-auto">Vezi profil jucător</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-info text-dark mb-2 align-self-start">Echipă (Juniori)</span>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info text-dark rounded-circle d-flex align-items-center justify-content-center me-3"
+                                style="width: 50px; height: 50px; font-weight: bold;">
+                                ACD
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0 fw-bold">Academia Dinamo</h5>
+                                <small class="text-muted">Juniori II - Seria B</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted small">Echipa a doua destinată dezvoltării tinerilor jucători din
+                            cadrul academiei.</p>
+
+                        <a href="clasamente.html" class="btn btn-outline-info btn-sm w-100 mt-auto">Vezi detalii
+                            echipă</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="container mt-5 py-3 border-top text-center text-muted">
+        <p>&copy; 2026 Handball4RO. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
