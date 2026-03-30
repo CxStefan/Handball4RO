@@ -1,0 +1,21 @@
+﻿@model Handball4RO.Models.Stire
+
+@{
+    ViewData["Title"] = "Șterge Știrea";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="alert alert-danger shadow-sm">
+            <h3 class="fw-bold">Atenție!</h3>
+            <p>Ești sigur că vrei să ștergi definitiv știrea <strong>"@Model.Titlu"</strong>?</p>
+            <p class="text-muted small">Această acțiune nu poate fi anulată.</p>
+
+            <form asp-action="Sterge" method="post" class="mt-4">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger fw-bold px-4">Da, șterge!</button>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Renunță</a>
+            </form>
+        </div>
+    </div>
+</div>

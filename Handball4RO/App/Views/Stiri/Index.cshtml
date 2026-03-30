@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Handball4RO.Models.Stire>
+
+@{
+    ViewData["Title"] = "Știri";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+    <div>
+        <h2 class="fw-bold mb-0">Cele mai noi știri</h2>
+        <p class="text-muted">Află ce se întâmplă în lumea handbalului</p>
+    </div>
+
+    <div>
+        <a asp-action="Adauga" class="btn btn-success fw-bold">+ Adaugă Știre</a>
+    </div>
+</div>
+
+<div class="row g-4">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">Nu există nicio știre publicată momentan.</div>
+    }
+    else
+    {
+        // afisam fiecare stire
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
+                    <img src="@item.ImagineUrl" class="card-img-top" alt="Imagine stire" style="height: 200px; object-fit: cover;">
+
+                    <div class="card-body d-flex flex-column p-4">
+                        <small class="text-primary fw-bold mb-2">@item.DataPublicare.ToString("dd MMM yyyy")</small>
+
+                        <h5 class="card-title fw-bold mb-3">@item.Titlu</h5>
+
+                        <p class="card-text text-muted mb-4">
+                            @(item.Continut.Length > 100 ? item.Continut.Substring(0, 100) + "..." : item.Continut)
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary mt-auto align-self-start fw-bold">Citește mai mult →</a>
+                        <div class="mt-3 pt-3 border-top d-flex gap-2">
+                            <a asp-action="Editeaza" asp-route-id="@item.Id" class="btn btn-sm btn-warning fw-bold">✏️ Editează</a>
+
+                            <a asp-action="Sterge" asp-route-id="@item.Id" class="btn btn-sm btn-danger fw-bold">🗑️ Șterge</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
