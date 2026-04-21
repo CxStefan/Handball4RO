@@ -1,121 +1,87 @@
-﻿using Handball4RO.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Handball4RO.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Handball4RO.Services;
 
 namespace Handball4RO.Controllers
 {
     public class StiriController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IStireService _stireService;
 
-        // injectam baza de date in controller
-        public StiriController(ApplicationDbContext context)
+        public StiriController(IStireService stireService)
         {
-            _context = context;
+            _stireService = stireService;
         }
 
-        //GET:  metoda pentru a afisa toate stirile din baza de date
         public async Task<IActionResult> Index()
         {
-            // luam stirile din baza de date in ordine cronologica
-            var stiri = await _context.Stiri
-                                      .OrderByDescending(s => s.DataPublicare)
-                                      .ToListAsync();
-
-            // trimitem lista de stiri catre Index.cshtml
-            return View(stiri);
+            var stiri = await _stireService.ObtineToateStirileAsync();
+            return View(stiri.OrderByDescending(s => s.DataPublicare));
         }
 
-
-        // 1. afisam formularul gol
-        public IActionResult Adauga()
+        public async Task<IActionResult> Detalii(int? id)
         {
-            return View();
+            if (id == null) return NotFound();
+            var stire = await _stireService.ObtineStireDupaIdAsync(id.Value);
+            if (stire == null) return NotFound();
+            return View(stire);
         }
 
-        // 2. POST: preia datele din formular si le salveaza in baza de date
+        public IActionResult Adauga() => View();
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Adauga(Stire stireNoua)
         {
-            // deocamdata nu am logica de admin asa ca ignoram campul de admin
             ModelState.Remove("Autor");
             ModelState.Remove("AutorId");
-            // --------------------------------
 
             if (ModelState.IsValid)
             {
-                stireNoua.DataPublicare = DateTime.Now; // Setăm data curentă
-                                                        // Aici în viitor vei prelua AutorId din sesiunea adminului logat
-
-                _context.Add(stireNoua);
-                await _context.SaveChangesAsync(); // Salvează fizic în SQL
-
-                return RedirectToAction(nameof(Index)); // Întoarce adminul la lista de știri
+                await _stireService.AdaugaStireAsync(stireNoua);
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(stireNoua); // afisam formularul initial
+            return View(stireNoua);
         }
 
 
-
-        // GET: deschidem pagina completata cu informatiile despre stiri
         public async Task<IActionResult> Editeaza(int? id)
         {
             if (id == null) return NotFound();
-
-            var stire = await _context.Stiri.FindAsync(id);
+            var stire = await _stireService.ObtineStireDupaIdAsync(id.Value);
             if (stire == null) return NotFound();
-
-            return View(stire); // trimitem datele catre Editeaza.cshtml
+            return View(stire);
         }
 
-        // POST: salvam modificarile in baza de date
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Editeaza(int id, Stire stireModificata)
         {
             if (id != stireModificata.Id) return NotFound();
-
             ModelState.Remove("Autor");
             ModelState.Remove("AutorId");
 
             if (ModelState.IsValid)
             {
-                _context.Update(stireModificata);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction(nameof(Index)); // ne intoarcem la pagina de stiri
+                await _stireService.EditeazaStireAsync(stireModificata);
+                return RedirectToAction(nameof(Index));
             }
             return View(stireModificata);
         }
 
-
-
-        // GET pentru pagina de confirmare
         public async Task<IActionResult> Sterge(int? id)
         {
             if (id == null) return NotFound();
-
-            var stire = await _context.Stiri.FirstOrDefaultAsync(m => m.Id == id);
+            var stire = await _stireService.ObtineStireDupaIdAsync(id.Value);
             if (stire == null) return NotFound();
-
-            return View(stire); // trimitem catre sterge.cshtml (ptr confirmare)
+            return View(stire);
         }
 
-        // POST : metoda de stergere
         [HttpPost, ActionName("Sterge")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> StergeConfirmare(int id)
         {
-            var stire = await _context.Stiri.FindAsync(id);
-            if (stire != null)
-            {
-                _context.Stiri.Remove(stire); // comanda de stergere
-                await _context.SaveChangesAsync();
-            }
-
+            await _stireService.StergeStireAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Contactează-ne";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">📩 Rămâi în contact cu noi</h2>
+        <p class="text-muted">Ai o întrebare legată de competiții, echipe sau platformă? Scrie-ne un mesaj!</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-7 mb-4">
+            <div class="card shadow-sm border-0 p-4">
+                <form action="#" method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Numele tău</label>
+                            <input type="text" class="form-control" name="Nume" placeholder="ex: Ion Popescu" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Adresa de E-mail</label>
+                            <input type="email" class="form-control" name="Email" placeholder="ex: ion@email.com" required />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Subiect</label>
+                        <input type="text" class="form-control" name="Subiect" placeholder="Despre ce dorești să discutăm?" required />
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Mesajul tău</label>
+                        <textarea class="form-control" name="Mesaj" rows="5" placeholder="Scrie mesajul tău aici..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary fw-bold px-5">✈️ Trimite Mesajul</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 bg-light h-100">
+                <h4 class="fw-bold mb-4">Informații Utile</h4>
+
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-3 me-3">📍</span>
+                    <div>
+                        <h6 class="fw-bold mb-0">Adresa Noastră</h6>
+                        <span class="text-muted small">București, România</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-3 me-3">📞</span>
+                    <div>
+                        <h6 class="fw-bold mb-0">Telefon</h6>
+                        <span class="text-muted small">+40 700 000 000</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <span class="fs-3 me-3">✉️</span>
+                    <div>
+                        <h6 class="fw-bold mb-0">E-mail</h6>
+                        <span class="text-muted small">contact@handball4ro.ro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Handball4RO.Models.Clasament>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">📊 Clasament @ViewBag.NumeCompetitie</h2>
+
+        <div class="d-flex gap-2">
+            <a asp-controller="Echipe" asp-action="Index" class="btn btn-outline-dark fw-bold">
+                🔍 Afișează toate Echipele
+            </a>
+
+            <a asp-controller="Echipe" asp-action="Adauga" class="btn btn-outline-primary fw-bold">
+                + Crează Echipă Nouă
+            </a>
+
+            <a asp-controller="Clasament" asp-action="AdaugaInCompetitie" asp-route-competitieId="@Context.Request.RouteValues["id"]" class="btn btn-success fw-bold">
+                + Adaugă în Clasament
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-bordered bg-white shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Echipă</th>
+                <th>M</th>
+                <th>V</th>
+                <th>E</th>
+                <th>Î</th>
+                <th>GM-GP</th>
+                <th>PCT</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rand in Model)
+            {
+                <tr>
+                    <td class="fw-bold">@rand.Echipa?.Nume</td>
+                    <td>@rand.MeciuriJucate</td>
+                    <td>@rand.Victorii</td>
+                    <td>@rand.Egaluri</td>
+                    <td>@rand.Infrangeri</td>
+                    <td>@rand.GoluriMarcate - @rand.GoluriPrimite</td>
+                    <td class="fw-bold text-primary">@rand.Puncte</td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            <a asp-controller="Clasament" asp-action="Editeaza" asp-route-id="@rand.Id" class="btn btn-sm btn-warning">✏️</a>
+
+                            <form asp-controller="Clasament" asp-action="Sterge" method="post" onsubmit="return confirm('Scoți echipa din competiție?')">
+                                <input type="hidden" name="id" value="@rand.Id" />
+                                <input type="hidden" name="competitieId" value="@rand.CompetitieId" />
+                                <button type="submit" class="btn btn-sm btn-danger">🗑️</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

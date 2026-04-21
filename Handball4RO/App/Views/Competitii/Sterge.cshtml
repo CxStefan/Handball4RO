@@ -1,0 +1,16 @@
+﻿@model Handball4RO.Models.Competitie
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="alert alert-danger shadow-sm">
+            <h3 class="fw-bold">Ești sigur?</h3>
+            <p>Vrei să ștergi definitiv competiția <strong>@Model.Nume</strong> (@Model.Sezon)?</p>
+
+            <form asp-action="Sterge" method="post" class="mt-4">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger fw-bold px-4">Da, Șterge</button>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">Renunță</a>
+            </form>
+        </div>
+    </div>
+</div>

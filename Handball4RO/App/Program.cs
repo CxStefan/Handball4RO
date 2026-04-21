@@ -1,12 +1,25 @@
-using Microsoft.EntityFrameworkCore;
 using Handball4RO.Data;
+using Handball4RO.Repositories;
+using Handball4RO.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-// Add services to the container.
+
+// 
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// 
+builder.Services.AddScoped<IStireService, StireService>();
+builder.Services.AddScoped<ICompetitieService, CompetitieService>();
+builder.Services.AddScoped<IEchipaService, EchipaService>();
+builder.Services.AddScoped<IMeciService, MeciService>();
+builder.Services.AddScoped<IClasamentService, ClasamentService>();
+
+// add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

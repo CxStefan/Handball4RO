@@ -1,0 +1,24 @@
+﻿@model Handball4RO.Models.Echipa
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 card p-4 shadow-sm">
+        <h3 class="fw-bold text-warning">Editează Echipa</h3>
+        <form asp-action="Editeaza">
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label asp-for="Nume" class="form-label fw-bold"></label>
+                <input asp-for="Nume" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Oras" class="form-label fw-bold"></label>
+                <input asp-for="Oras" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="LogoUrl" class="form-label fw-bold"></label>
+                <input asp-for="LogoUrl" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-warning fw-bold">Salvează Modificările</button>
+            <a asp-action="Index" class="btn btn-link text-secondary">Înapoi</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model Handball4RO.Models.Clasament
+
+@{
+    ViewData["Title"] = "Adaugă Echipă";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-7 card p-4 shadow-sm border-0">
+        <h3 class="fw-bold mb-4 text-success">Adaugă o echipă în competiție</h3>
+
+        <form asp-action="AdaugaInCompetitie" method="post">
+            <div asp-validation-summary="All" class="text-danger fw-bold mb-3"></div>
+
+            <input type="hidden" asp-for="CompetitieId" />
+
+            <div class="mb-4">
+                <label asp-for="EchipaId" class="form-label fw-bold">Selectează Echipa</label>
+                <div class="input-group">
+                    <select asp-for="EchipaId" class="form-select" asp-items="ViewBag.Echipe">
+                        <option value="">-- Alege o echipă din listă --</option>
+                    </select>
+                </div>
+                <span asp-validation-for="EchipaId" class="text-danger"></span>
+
+                <div class="form-text mt-2">
+                    Nu găsești echipa? Mergi la secțiunea Echipe și creeaz-o mai întâi!
+                </div>
+            </div>
+
+            <h5 class="text-muted border-bottom pb-2 mb-3">Statistici Inițiale</h5>
+
+            <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                    <label asp-for="MeciuriJucate" class="form-label fw-bold">Meciuri Jucate</label>
+                    <input asp-for="MeciuriJucate" class="form-control" value="0" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Victorii" class="form-label fw-bold text-success">Victorii</label>
+                    <input asp-for="Victorii" class="form-control" value="0" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="Puncte" class="form-label fw-bold text-primary">Puncte</label>
+                    <input asp-for="Puncte" class="form-control" value="0" />
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <label asp-for="Egaluri" class="form-label fw-bold text-secondary">Egaluri</label>
+                    <input asp-for="Egaluri" class="form-control" value="0" />
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="Infrangeri" class="form-label fw-bold text-danger">Înfrângeri</label>
+                    <input asp-for="Infrangeri" class="form-control" value="0" />
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="GoluriMarcate" class="form-label fw-bold">Goluri Marcate</label>
+                    <input asp-for="GoluriMarcate" class="form-control" value="0" />
+                </div>
+                <div class="col-md-3">
+                    <label asp-for="GoluriPrimite" class="form-label fw-bold">Goluri Primite</label>
+                    <input asp-for="GoluriPrimite" class="form-control" value="0" />
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-success fw-bold px-4">✔ Adaugă în Clasament</button>
+                <a asp-controller="Competitii" asp-action="Details" asp-route-id="@Model.CompetitieId" class="btn btn-outline-secondary">Anulează</a>
+            </div>
+        </form>
+    </div>
+</div>
