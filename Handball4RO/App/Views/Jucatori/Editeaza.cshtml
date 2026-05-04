@@ -1,0 +1,66 @@
+﻿@model Handball4RO.Models.Jucator
+
+@{
+    ViewData["Title"] = "Editează Jucător";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-warning text-dark text-center py-3">
+                    <h3 class="fw-bold mb-0">✏️ Editează Jucător</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Editeaza" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" asp-for="EchipaId" />
+
+                       
+                        <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+
+                        <div class="mb-3">
+                            <label asp-for="Nume" class="form-label fw-bold">Nume Complet</label>
+                            <input asp-for="Nume" class="form-control" placeholder="Introduceți numele jucătorului" />
+                            <span asp-validation-for="Nume" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Pozitie" class="form-label fw-bold">Poziție pe teren</label>
+                            <select asp-for="Pozitie" class="form-select">
+                                <option value="Portar">Portar</option>
+                                <option value="Extremă Stânga">Extremă Stânga</option>
+                                <option value="Extremă Dreapta">Extremă Dreapta</option>
+                                <option value="Pivot">Pivot</option>
+                                <option value="Centru">Centru</option>
+                                <option value="Inter">Inter</option>
+                            </select>
+                            <span asp-validation-for="Pozitie" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="NumarTricou" class="form-label fw-bold">Număr Tricou (Opțional)</label>
+                            <input asp-for="NumarTricou" type="number" class="form-control" placeholder="ex: 10" />
+                            <span asp-validation-for="NumarTricou" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary fw-bold py-2">💾 Salvează Modificările</button>
+
+                           
+                            <a asp-action="Index" asp-route-echipaId="@Model.EchipaId" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-outline-secondary">
+                                ❌ Anulează
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

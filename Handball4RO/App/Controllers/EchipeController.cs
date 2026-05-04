@@ -13,17 +13,29 @@ namespace Handball4RO.Controllers
             _echipaService = echipaService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? competitieId)
         {
-            return View(await _echipaService.ObtineToateAsync());
+            ViewBag.CompetitieId = competitieId;
+
+            if (competitieId.HasValue)
+            {
+                var echipe = await _echipaService.ObtineEchipeDupaCompetitieAsync(competitieId.Value);
+                return View(echipe);
+            }
+
+            var toateEchipele = await _echipaService.ObtineToateAsync();
+            return View(toateEchipele);
         }
 
-        public IActionResult Adauga() => View();
-
+        public IActionResult Adauga(int? competitieId)
+        {
+            ViewBag.CompetitieId = competitieId;
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Adauga(Echipa echipa)
+        public async Task<IActionResult> Adauga(Echipa echipa, int? competitieId)
         {
             ModelState.Remove("Jucatori");
             ModelState.Remove("MeciuriAcasa");
@@ -32,12 +44,15 @@ namespace Handball4RO.Controllers
 
             if (ModelState.IsValid)
             {
-                await _echipaService.AdaugaAsync(echipa);
-                return RedirectToAction(nameof(Index));
+                
+                await _echipaService.AdaugaAsync(echipa, competitieId);
+
+                return RedirectToAction(nameof(Index), new { competitieId = competitieId });
             }
+
+            ViewBag.CompetitieId = competitieId;
             return View(echipa);
         }
-
         public async Task<IActionResult> Editeaza(int? id)
         {
             if (id == null) return NotFound();

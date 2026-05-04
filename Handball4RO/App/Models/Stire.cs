@@ -20,7 +20,6 @@ namespace Handball4RO.Models
 
         public DateTime DataPublicare { get; set; } = DateTime.Now;
 
-        // fk catre user
         public int? AutorId { get; set; }
 
         [ForeignKey("AutorId")]

@@ -1,10 +1,18 @@
 ﻿using Handball4RO.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public interface IEchipaService
+namespace Handball4RO.Services
 {
-    Task<IEnumerable<Echipa>> ObtineToateAsync();
-    Task<Echipa> ObtineDupaIdAsync(int id);
-    Task AdaugaAsync(Echipa echipa);
-    Task EditeazaAsync(Echipa echipa);
-    Task StergeAsync(int id);
+    public interface IEchipaService
+    {
+        Task<IEnumerable<Echipa>> ObtineToateAsync();
+        Task<Echipa> ObtineDupaIdAsync(int id);
+
+        Task AdaugaAsync(Echipa echipa, int? competitieId = null);
+
+        Task EditeazaAsync(Echipa echipa);
+        Task StergeAsync(int id);
+        Task<IEnumerable<Echipa>> ObtineEchipeDupaCompetitieAsync(int competitieId);
+    }
 }

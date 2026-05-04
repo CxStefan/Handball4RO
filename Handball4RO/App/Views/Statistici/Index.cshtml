@@ -1,0 +1,106 @@
+﻿@model Handball4RO.Models.StatisticiCompetitieViewModel
+
+<div class="container mt-4 mb-5">
+    <div class="card shadow-sm border-0 mb-4 p-4 bg-dark text-white text-center">
+        <h2 class="fw-bold text-warning mb-2">📈 Statistici Oficiale Jucători</h2>
+        <p class="text-light mb-4">Selectează o competiție pentru a vedea topul golgheterilor și al portarilor.</p>
+
+        <form asp-action="Index" method="get" class="row justify-content-center">
+            <div class="col-md-6">
+                <select asp-for="CompetitieId" asp-items="Model.ListaCompetitii" class="form-select form-select-lg fw-bold text-center" onchange="this.form.submit()">
+                    <option value="">-- Alege Competiția --</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    @if (Model.CompetitieId.HasValue)
+    {
+        <div class="row">
+            <div class="col-12 mb-5">
+                <h3 class="fw-bold text-primary mb-3">🔥 Top Marcatori</h3>
+                <div class="card shadow-sm border-0">
+                    <table class="table table-hover align-middle text-center mb-0">
+                        <thead class="table-primary text-dark">
+                            <tr>
+                                <th>#</th>
+                                <th class="text-start">Nume Jucător</th>
+                                <th>Echipă</th>
+                                <th>Meciuri</th>
+                                <th class="fs-5 text-danger">⚽ Goluri</th>
+                                <th>7m Transf.</th>
+                                <th>Assisturi</th>
+                                <th>Sancțiuni (G/2'/R)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.TopMarcatori.Count; i++)
+                            {
+                                var j = Model.TopMarcatori[i];
+                                <tr>
+                                    <td class="fw-bold text-muted">@(i + 1)</td>
+                                    <td class="text-start fw-bold">
+                                        @j.NumeJucator <br />
+                                        <span class="badge bg-light text-dark small">@j.Pozitie</span>
+                                    </td>
+                                    <td class="fw-bold">@j.NumeEchipa</td>
+                                    <td>@j.MeciuriJucate</td>
+                                    <td class="fs-4 fw-bold text-danger">@j.TotalGoluri</td>
+                                    <td>@j.Total7m</td>
+                                    <td>@j.TotalAssisturi</td>
+                                    <td>
+                                        <span class="badge bg-warning text-dark">@j.TotalGalbene</span> /
+                                        <span class="badge bg-secondary">@j.Total2Min</span> /
+                                        <span class="badge bg-danger">@j.TotalRosii</span>
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.TopMarcatori.Any())
+                            {
+                                <tr><td colspan="8" class="p-4 text-muted">Nu există statistici înregistrate încă.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <h3 class="fw-bold text-success mb-3">🛡️ Top Portari</h3>
+                <div class="card shadow-sm border-0">
+                    <table class="table table-hover align-middle text-center mb-0">
+                        <thead class="table-success text-dark">
+                            <tr>
+                                <th>#</th>
+                                <th class="text-start">Nume Portar</th>
+                                <th>Echipă</th>
+                                <th>Meciuri</th>
+                                <th class="fs-5 text-success">👐 Parade</th>
+                                <th>Goluri Marcate</th>
+                                <th>Assisturi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.TopPortari.Count; i++)
+                            {
+                                var p = Model.TopPortari[i];
+                                <tr>
+                                    <td class="fw-bold text-muted">@(i + 1)</td>
+                                    <td class="text-start fw-bold">@p.NumeJucator</td>
+                                    <td class="fw-bold">@p.NumeEchipa</td>
+                                    <td>@p.MeciuriJucate</td>
+                                    <td class="fs-4 fw-bold text-success">@p.TotalParade</td>
+                                    <td>@p.TotalGoluri</td>
+                                    <td>@p.TotalAssisturi</td>
+                                </tr>
+                            }
+                            @if (!Model.TopPortari.Any())
+                            {
+                                <tr><td colspan="7" class="p-4 text-muted">Nu există statistici de portari înregistrate încă.</td></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

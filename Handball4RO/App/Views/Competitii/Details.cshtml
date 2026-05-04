@@ -4,17 +4,21 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">📊 Clasament @ViewBag.NumeCompetitie</h2>
 
-        <div class="d-flex gap-2">
-            <a asp-controller="Echipe" asp-action="Index" class="btn btn-outline-dark fw-bold">
-                🔍 Afișează toate Echipele
+        <div class="d-flex gap-2 flex-wrap">
+            <a asp-controller="Echipe" asp-action="Index" asp-route-competitieId="@Context.Request.RouteValues["id"]" class="btn btn-outline-dark fw-bold">
+                🔍 Afișează Echipele din Ligă
             </a>
 
-            <a asp-controller="Echipe" asp-action="Adauga" class="btn btn-outline-primary fw-bold">
-                + Crează Echipă Nouă
+            <a asp-controller="Echipe" asp-action="Adauga" asp-route-competitieId="@Context.Request.RouteValues["id"]" class="btn btn-outline-primary fw-bold">
+                + Crează Echipă
             </a>
 
             <a asp-controller="Clasament" asp-action="AdaugaInCompetitie" asp-route-competitieId="@Context.Request.RouteValues["id"]" class="btn btn-success fw-bold">
                 + Adaugă în Clasament
+            </a>
+
+            <a asp-controller="Meciuri" asp-action="Index" asp-route-competitieId="@Context.Request.RouteValues["id"]" class="btn btn-warning fw-bold text-dark">
+                🗓️ Calendar Meciuri
             </a>
         </div>
     </div>
@@ -36,7 +40,11 @@
             @foreach (var rand in Model)
             {
                 <tr>
-                    <td class="fw-bold">@rand.Echipa?.Nume</td>
+                    <td>
+                        <a asp-controller="Jucatori" asp-action="Index" asp-route-echipaId="@rand.EchipaId" asp-route-competitieId="@rand.CompetitieId" class="fw-bold text-decoration-none text-primary">
+                            @rand.Echipa?.Nume
+                        </a>
+                    </td>
                     <td>@rand.MeciuriJucate</td>
                     <td>@rand.Victorii</td>
                     <td>@rand.Egaluri</td>

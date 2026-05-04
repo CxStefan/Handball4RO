@@ -17,7 +17,6 @@ namespace Handball4RO.Models
         public int GoluriPrimite { get; set; } = 0;
         public int Puncte { get; set; } = 0;
 
-        // Chei externe
         public int CompetitieId { get; set; }
         [ForeignKey("CompetitieId")]
         public Competitie Competitie { get; set; }

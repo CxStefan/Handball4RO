@@ -8,7 +8,6 @@ namespace Handball4RO.Models
         [Key]
         public int Id { get; set; }
 
-        // foreign keys
         public int JucatorId { get; set; }
         [ForeignKey("JucatorId")]
         public Jucator Jucator { get; set; }

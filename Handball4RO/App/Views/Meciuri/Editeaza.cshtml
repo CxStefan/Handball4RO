@@ -1,0 +1,43 @@
+﻿@model Handball4RO.Models.Meci
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-7 card shadow-sm border-0 p-4">
+        <h3 class="fw-bold text-warning mb-4">✏️ Editează Programarea Meciului</h3>
+
+        <form asp-action="Editeaza" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger fw-bold mb-3"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Status" />
+            <input type="hidden" asp-for="CompetitieId" />
+            <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">🏠 Echipa Gazdă</label>
+                    <select asp-for="EchipaGazdaId" asp-items="@ViewBag.ListaEchipe" class="form-select" required>
+                        <option value="">-- Alege Gazda --</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">🚌 Echipa Oaspete</label>
+                    <select asp-for="EchipaOaspeteId" asp-items="@ViewBag.ListaEchipe" class="form-select" required>
+                        <option value="">-- Alege Oaspetele --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">📆 Data și Ora Meciului</label>
+                    <input asp-for="DataMeci" type="datetime-local" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 mt-2">
+                <button type="submit" class="btn btn-primary fw-bold px-4">💾 Salvează Modificările</button>
+                <a asp-action="Index" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-outline-secondary">Anulează</a>
+            </div>
+        </form>
+    </div>
+</div>

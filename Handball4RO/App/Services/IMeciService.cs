@@ -1,8 +1,20 @@
 ﻿using Handball4RO.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public interface IMeciService
+namespace Handball4RO.Services
 {
-    Task<IEnumerable<Meci>> ObtineMeciuriCompetitieAsync(int competitieId);
-    Task AdaugaMeciAsync(Meci meci);
-    Task ActualizeazaScorAsync(int meciId, int scorG, int scorO);
+    public interface IMeciService
+    {
+        
+        Task<IEnumerable<Meci>> ObtineMeciuriDupaCompetitieAsync(int competitieId);
+
+        Task<Meci> ObtineDupaIdAsync(int id);
+
+        Task AdaugaAsync(Meci meci);
+
+        Task EditeazaAsync(Meci meci);
+
+        Task StergeAsync(int id);
+    }
 }

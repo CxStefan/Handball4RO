@@ -18,6 +18,8 @@ builder.Services.AddScoped<ICompetitieService, CompetitieService>();
 builder.Services.AddScoped<IEchipaService, EchipaService>();
 builder.Services.AddScoped<IMeciService, MeciService>();
 builder.Services.AddScoped<IClasamentService, ClasamentService>();
+builder.Services.AddScoped<IJucatorService, JucatorService>();
+builder.Services.AddScoped<IMeciService, MeciService>();
 
 // add services to the container.
 builder.Services.AddControllersWithViews();

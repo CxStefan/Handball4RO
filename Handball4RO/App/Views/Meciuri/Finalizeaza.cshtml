@@ -1,0 +1,130 @@
+﻿@model Handball4RO.Models.FinalizareMeciViewModel
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="card shadow-sm border-0 mb-4 p-4 text-center bg-dark text-white">
+        <h3 class="fw-bold text-warning mb-3">🏁 Raport Oficial de Joc</h3>
+        <h4 class="mb-0">@Model.NumeGazda <span class="text-muted mx-3">vs</span> @Model.NumeOaspete</h4>
+    </div>
+
+    <form asp-action="Finalizeaza" method="post">
+        <input type="hidden" asp-for="MeciId" />
+        <input type="hidden" asp-for="CompetitieId" />
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-4 text-center">
+                <label class="form-label fw-bold fs-5">Scor @Model.NumeGazda (Gazde)</label>
+                <input asp-for="ScorGazda" class="form-control form-control-lg text-center fs-2 fw-bold text-primary" required min="0" />
+            </div>
+            <div class="col-md-1 d-flex align-items-center justify-content-center fs-2 fw-bold">-</div>
+            <div class="col-md-4 text-center">
+                <label class="form-label fw-bold fs-5">Scor @Model.NumeOaspete (Oaspeți)</label>
+                <input asp-for="ScorOaspete" class="form-control form-control-lg text-center fs-2 fw-bold text-primary" required min="0" />
+            </div>
+        </div>
+
+        <h4 class="fw-bold text-primary mb-3">🏠 Jucători Gazdă: @Model.NumeGazda</h4>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-hover table-sm align-middle text-center">
+                <thead class="table-dark small">
+                    <tr>
+                        <th class="text-start">Nume Jucător</th>
+                        <th>Goluri</th>
+                        <th>7m Transf.</th>
+                        <th>Assisturi</th>
+                        <th class="text-warning">Parade (Portar)</th>
+                        <th class="text-warning">C. Galben</th>
+                        <th>2 Min</th>
+                        <th class="text-danger">C. Roșu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.JucatoriGazda.Count; i++)
+                    {
+                        <input type="hidden" asp-for="JucatoriGazda[i].JucatorId" />
+                        <input type="hidden" asp-for="JucatoriGazda[i].Nume" />
+                        <input type="hidden" asp-for="JucatoriGazda[i].Pozitie" />
+
+                        <tr>
+                            <td class="text-start fw-bold small">
+                                @Model.JucatoriGazda[i].Nume <br />
+                                <span class="badge bg-light text-dark">@Model.JucatoriGazda[i].Pozitie</span>
+                            </td>
+                            <td><input asp-for="JucatoriGazda[i].GoluriMarcate" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td><input asp-for="JucatoriGazda[i].Aruncari7mTransformate" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td><input asp-for="JucatoriGazda[i].Assisturi" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td>
+                                @if (Model.JucatoriGazda[i].Pozitie == "Portar")
+                                {
+                                    <input asp-for="JucatoriGazda[i].Parade" class="form-control form-control-sm text-center border-warning mx-auto" style="width: 60px;" min="0" />
+                                }
+                                else
+                                {
+                                    <input type="hidden" asp-for="JucatoriGazda[i].Parade" value="0" />
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td><input asp-for="JucatoriGazda[i].CartonaseGalbene" class="form-control form-control-sm text-center border-warning mx-auto" style="width: 60px;" min="0" max="1" /></td>
+                            <td><input asp-for="JucatoriGazda[i].Eliminari2Min" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" max="3" /></td>
+                            <td><input asp-for="JucatoriGazda[i].CartonaseRosii" class="form-control form-control-sm text-center border-danger mx-auto" style="width: 60px;" min="0" max="1" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h4 class="fw-bold text-primary mb-3">🚌 Jucători Oaspeți: @Model.NumeOaspete</h4>
+        <div class="table-responsive mb-5">
+            <table class="table table-bordered table-hover table-sm align-middle text-center">
+                <thead class="table-dark small">
+                    <tr>
+                        <th class="text-start">Nume Jucător</th>
+                        <th>Goluri</th>
+                        <th>7m Transf.</th>
+                        <th>Assisturi</th>
+                        <th class="text-warning">Parade (Portar)</th>
+                        <th class="text-warning">C. Galben</th>
+                        <th>2 Min</th>
+                        <th class="text-danger">C. Roșu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.JucatoriOaspete.Count; i++)
+                    {
+                        <input type="hidden" asp-for="JucatoriOaspete[i].JucatorId" />
+                        <input type="hidden" asp-for="JucatoriOaspete[i].Nume" />
+                        <input type="hidden" asp-for="JucatoriOaspete[i].Pozitie" />
+
+                        <tr>
+                            <td class="text-start fw-bold small">
+                                @Model.JucatoriOaspete[i].Nume <br />
+                                <span class="badge bg-light text-dark">@Model.JucatoriOaspete[i].Pozitie</span>
+                            </td>
+                            <td><input asp-for="JucatoriOaspete[i].GoluriMarcate" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td><input asp-for="JucatoriOaspete[i].Aruncari7mTransformate" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td><input asp-for="JucatoriOaspete[i].Assisturi" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" /></td>
+                            <td>
+                                @if (Model.JucatoriOaspete[i].Pozitie == "Portar")
+                                {
+                                    <input asp-for="JucatoriOaspete[i].Parade" class="form-control form-control-sm text-center border-warning mx-auto" style="width: 60px;" min="0" />
+                                }
+                                else
+                                {
+                                    <input type="hidden" asp-for="JucatoriOaspete[i].Parade" value="0" />
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td><input asp-for="JucatoriOaspete[i].CartonaseGalbene" class="form-control form-control-sm text-center border-warning mx-auto" style="width: 60px;" min="0" max="1" /></td>
+                            <td><input asp-for="JucatoriOaspete[i].Eliminari2Min" class="form-control form-control-sm text-center mx-auto" style="width: 60px;" min="0" max="3" /></td>
+                            <td><input asp-for="JucatoriOaspete[i].CartonaseRosii" class="form-control form-control-sm text-center border-danger mx-auto" style="width: 60px;" min="0" max="1" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-grid gap-2 mb-5">
+            <button type="submit" class="btn btn-success btn-lg fw-bold">💾 Finalizează Meciul & Calculează Clasamentul</button>
+            <a asp-action="Index" asp-route-competitieId="@Model.CompetitieId" class="btn btn-outline-secondary btn-lg">Anulează</a>
+        </div>
+    </form>
+</div>

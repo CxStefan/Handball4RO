@@ -11,6 +11,8 @@
         <form asp-action="Adauga" method="post">
             <div asp-validation-summary="All" class="text-danger fw-bold mb-3"></div>
 
+            <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+
             <div class="mb-3">
                 <label asp-for="Nume" class="form-label fw-bold">Numele Echipei</label>
                 <input asp-for="Nume" class="form-control" placeholder="ex: CSM Constanța" required />
@@ -31,7 +33,10 @@
 
             <div class="d-flex gap-2 mt-4">
                 <button type="submit" class="btn btn-primary fw-bold px-4">✔ Salvează Echipa</button>
-                <a href="javascript:history.back()" class="btn btn-outline-secondary">Anulează și Întoarce-te</a>
+
+                <a asp-action="Index" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-outline-secondary">
+                    Anulează și Întoarce-te
+                </a>
             </div>
         </form>
     </div>

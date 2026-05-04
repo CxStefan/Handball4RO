@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Handball4RO.Models.Jucator>
+
+<div class="container mt-4">
+    @if (TempData["Eroare"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Eroare"]</div>
+    }
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success">@TempData["Mesaj"]</div>
+    }
+
+    <div class="card shadow-sm border-0 mb-4 p-3 bg-light">
+        <div class="d-flex align-items-center">
+            <img src="@ViewBag.LogoEchipa" style="width: 60px; height: 60px; object-fit: contain;" class="me-3" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1000/1000884.png'" />
+            <div>
+                <h2 class="fw-bold mb-0">Lot: @ViewBag.NumeEchipa</h2>
+                <small class="text-muted">Administrare jucători</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <h5 class="fw-bold mb-3">➕ Adaugă Jucător Nou</h5>
+            <form asp-action="Adauga" method="post" class="row g-3 align-items-end">
+                <input type="hidden" name="EchipaId" value="@ViewBag.EchipaId" />
+                <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+
+                <div class="col-md-4">
+                    <label class="form-label small fw-bold">Nume Complet</label>
+                    <input type="text" name="Nume" class="form-control" required />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label small fw-bold">Poziție</label>
+                    <select name="Pozitie" class="form-select">
+                        <option value="Portar">Portar</option>
+                        <option value="Extremă Stângă">Extremă Stângă</option>
+                        <option value="Extremă Dreaptă">Extremă Dreaptă</option>
+                        <option value="Pivot">Pivot</option>
+                        <option value="Centru">Centru</option>
+                        <option value="Inter Stânga">Inter Stânga</option>
+                        <option value="Inter Dreapta">Inter Dreapta</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label small fw-bold">Nr. Tricou</label>
+                    <input type="number" name="NumarTricou" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success w-100 fw-bold">Salvează</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th class="ps-4">Nr.</th>
+                    <th>Nume Jucător</th>
+                    <th>Poziție</th>
+                    <th class="text-end pe-4">Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var j in Model)
+                {
+                    <tr>
+                        <td class="ps-4 fw-bold text-primary">#@j.NumarTricou</td>
+                        <td class="fw-bold">@j.Nume</td>
+                        <td><span class="badge bg-info text-dark">@j.Pozitie</span></td>
+                        <td class="text-end pe-4">
+                            
+                            <a asp-action="Editeaza" asp-route-id="@j.Id" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-sm btn-outline-warning">✏️</a>
+
+                            <form asp-action="Sterge" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@j.Id" />
+                                <input type="hidden" name="echipaId" value="@ViewBag.EchipaId" />
+                                
+                                <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Ștergi?')">🗑️</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4">
+        @if (ViewBag.CompetitieId != null)
+        {
+            <a asp-controller="Competitii" asp-action="Details" asp-route-id="@ViewBag.CompetitieId" class="btn btn-dark">← Înapoi la Clasament</a>
+        }
+        else
+        {
+            <a asp-controller="Echipe" asp-action="Index" class="btn btn-secondary">← Înapoi la Echipe</a>
+        }
+    </div>
+</div>
