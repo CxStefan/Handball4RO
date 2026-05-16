@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Handball4RO.Models.UtilizatorViewModel>
+
+@{
+    ViewData["Title"] = "Gestiune Utilizatori";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-danger">🛡️ Gestiune Utilizatori (Panou Admin)</h2>
+    </div>
+
+    @if (TempData["Eroare"] != null)
+    {
+        <div class="alert alert-danger fw-bold">@TempData["Eroare"]</div>
+    }
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success fw-bold">@TempData["Mesaj"]</div>
+    }
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-hover mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="ps-3">Email</th>
+                        <th>Nume Complet</th>
+                        <th>Rol Curent</th>
+                        <th class="text-end pe-4">Schimbă Rolul</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td class="align-middle ps-3 fw-bold">@user.Email</td>
+                            <td class="align-middle text-muted">@(string.IsNullOrEmpty(user.NumeComplet) ? "Necunoscut" : user.NumeComplet)</td>
+                            <td class="align-middle">
+                                <span class="badge @(user.RolCurent == "Admin" ? "bg-danger" : "bg-primary")">
+                                    @user.RolCurent
+                                </span>
+                            </td>
+                            <td class="text-end align-middle pe-4">
+                                <form asp-action="SchimbaRol" method="post" class="d-flex justify-content-end align-items-center">
+                                    <input type="hidden" name="userId" value="@user.Id" />
+                                    <select name="rolNou" class="form-select form-select-sm w-auto me-2">
+                                        <option value="User" selected="@(user.RolCurent == "User")">User normal</option>
+                                        <option value="Admin" selected="@(user.RolCurent == "Admin")">Admin</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-sm btn-outline-success fw-bold">Aplică</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

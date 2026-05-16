@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Handball4RO.Models.Meci>
+
+<div class="container mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+        <h2 class="fw-bold text-success mb-0">📅 Meciurile de Astăzi</h2>
+        <span class="fs-5 fw-bold text-muted">@DateTime.Today.ToString("dd MMMM yyyy")</span>
+    </div>
+
+    @if (Model.Any())
+    {
+        <div class="row">
+            @foreach (var m in Model)
+            {
+                var echipeMap = ViewBag.EchipeMap as Dictionary<int, string>;
+                var competitiiMap = ViewBag.CompetitiiMap as Dictionary<int, string>;
+
+                var numeAcasa = echipeMap != null && echipeMap.ContainsKey(m.EchipaGazdaId) ? echipeMap[m.EchipaGazdaId] : "Gazdă";
+                var numeDeplasare = echipeMap != null && echipeMap.ContainsKey(m.EchipaOaspeteId) ? echipeMap[m.EchipaOaspeteId] : "Oaspete";
+                var numeCompetitie = competitiiMap != null && competitiiMap.ContainsKey(m.CompetitieId) ? competitiiMap[m.CompetitieId] : "Competiție Necunoscută";
+
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                            <small class="fw-bold text-warning">@numeCompetitie</small>
+                            <small class="fw-bold">⏰ @m.DataMeci.ToString("HH:mm")</small>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="d-flex justify-content-between align-items-center px-3 mb-3 mt-2">
+                                <h4 class="fw-bold w-40 text-end mb-0">@numeAcasa</h4>
+
+                                <div class="w-20 px-2">
+                                    <span class="badge bg-light text-dark fs-4 px-3 border border-2">
+                                        @(m.ScorGazda.HasValue ? $"{m.ScorGazda} - {m.ScorOaspete}" : "VS")
+                                    </span>
+                                </div>
+
+                                <h4 class="fw-bold w-40 text-start mb-0">@numeDeplasare</h4>
+                            </div>
+
+                            <div class="mt-4">
+                                @if (m.Status == "finalizat")
+                                {
+                                    <span class="badge bg-success fs-6 py-2 px-4">✔ Meci Finalizat</span>
+                                }
+								else if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-controller="Meciuri" asp-action="Finalizeaza" asp-route-id="@m.Id" class="btn btn-success fw-bold">
+                                        🏁 Pune Scor & Finalizează
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm border-0 bg-light p-5 text-center">
+            <h1 class="display-1">😴</h1>
+            <h3 class="fw-bold mt-3 text-muted">Azi e zi de odihnă!</h3>
+            <p class="text-secondary">Nu există niciun meci programat pentru data de astăzi.</p>
+        </div>
+    }
+</div>

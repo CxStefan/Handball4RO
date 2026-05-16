@@ -1,0 +1,42 @@
+﻿@model Handball4RO.Models.RegisterViewModel
+
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-4">
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white text-center py-3">
+                <h4 class="mb-0">📝 Creează un cont nou</h4>
+            </div>
+            <div class="card-body p-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger small fw-bold mb-3"></div>
+
+                <form asp-action="Register" method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Adresă Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="nume@exemplu.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Parolă</label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Minim 6 caractere" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Confirmă Parola</label>
+                        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Repetă parola" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 fw-bold py-2">✅ Înregistrează-te</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

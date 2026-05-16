@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Handball4RO.Models.Meci>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-primary">🗓️ Calendar Meciuri</h2>
+
+        <div>
+            <a asp-controller="Competitii" asp-action="Details" asp-route-id="@ViewBag.CompetitieId" class="btn btn-dark fw-bold me-2">
+                ← Înapoi la Clasament
+            </a>
+			@if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Adauga" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-primary fw-bold">
+                    + Programează Meci
+            </a>
+            }
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <table class="table table-hover text-center align-middle mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Data Meciului</th>
+                    <th class="text-end">Echipa Gazdă</th>
+                    <th>Scor</th>
+                    <th class="text-start">Echipa Oaspete</th>
+                    <th>Status</th>
+                    <th>Acțiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model)
+                {
+                    var map = ViewBag.EchipeMap as Dictionary<int, string>;
+                    var numeAcasa = map != null && map.ContainsKey(m.EchipaGazdaId) ? map[m.EchipaGazdaId] : "Echipă Necunoscută";
+                    var numeDeplasare = map != null && map.ContainsKey(m.EchipaOaspeteId) ? map[m.EchipaOaspeteId] : "Echipă Necunoscută";
+
+                    <tr>
+                        <td class="text-muted fw-bold">@m.DataMeci.ToString("dd MMM yyyy - HH:mm")</td>
+                        <td class="text-end fw-bold fs-5">@numeAcasa</td>
+
+                        <td class="fw-bold bg-light fs-4 px-3 text-primary">
+                            @(m.ScorGazda.HasValue ? $"{m.ScorGazda} - {m.ScorOaspete}" : "V/S")
+                        </td>
+
+                        <td class="text-start fw-bold fs-5">@numeDeplasare</td>
+
+                        <td>
+                            @if (m.Status == "urmeaza")
+                            {
+                                <span class="badge bg-secondary">Urmează</span>
+                            }
+                            else if (m.Status == "in_desfasurare")
+                            {
+                                <span class="badge bg-warning text-dark">În desfășurare</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success">Finalizat</span>
+                            }
+                        </td>
+
+                        <td>
+                            <div class="d-flex justify-content-center gap-1">
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <form asp-action="Sterge" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@m.Id" />
+                                        <input type="hidden" name="competitieId" value="@ViewBag.CompetitieId" />
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('ATENȚIE! Dacă ștergi un meci finalizat, punctele se vor scădea din clasament și statisticile se vor șterge. Continuăm?')" title="Șterge Meci">🗑️</button>
+                                    </form>
+                                }
+
+                                @if (m.Status != "finalizat" && User.IsInRole("Admin"))
+                                {
+
+                                    <a asp-action="Editeaza" asp-route-id="@m.Id" asp-route-competitieId="@ViewBag.CompetitieId" class="btn btn-sm btn-outline-warning ms-1" title="Editează Meci">✏️</a>
+
+                                    <a asp-action="Finalizeaza" asp-route-id="@m.Id" class="btn btn-sm btn-success fw-bold ms-2">
+                                        🏁 Pune Scor
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-success fw-bold ms-2 align-self-center">✔ Încheiat</span>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="6" class="p-5 text-muted">Nu există meciuri programate încă în acest clasament.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

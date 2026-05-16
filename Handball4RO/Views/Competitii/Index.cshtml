@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Handball4RO.Models.Competitie>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">🏆 Competiții</h2>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Adauga" class="btn btn-primary fw-bold">+ Adaugă Competiție</a>
+        }
+    </div>
+
+    <table class="table table-hover shadow-sm bg-white">
+        <thead class="table-dark">
+            <tr>
+                <th>Nume Competiție</th>
+                <th>Sezon</th>
+                <th class="text-end">Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="fw-bold align-middle">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="text-decoration-none text-dark">
+                            🏆 @item.Nume
+                        </a>
+                    </td>
+                    <td class="align-middle">@item.Sezon</td>
+                    <td class="text-end">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Editeaza" asp-route-id="@item.Id" class="btn btn-sm btn-warning fw-bold">✏️ Editează</a>
+                            <a asp-action="Sterge" asp-route-id="@item.Id" class="btn btn-sm btn-danger fw-bold ms-1">🗑️ Șterge</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

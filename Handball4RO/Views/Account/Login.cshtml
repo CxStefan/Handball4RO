@@ -1,0 +1,25 @@
+﻿<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white text-center py-3">
+                <h4 class="mb-0">🔑 Autentificare</h4>
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="Login" method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Email</label>
+                        <input name="email" type="email" class="form-control" placeholder="nume@exemplu.com" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Parolă</label>
+                        <input name="password" type="password" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2">Intră în cont</button>
+                </form>
+            </div>
+            <div class="card-footer text-center py-3">
+                Nu ai cont? <a asp-action="Register" class="text-primary fw-bold">Înregistrează-te</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,177 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Handball4RO
+build_property.RootNamespace = Handball4RO
+build_property.ProjectDir = C:\Users\cumpa\source\repos\Handball4RO\Handball4RO\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\cumpa\source\repos\Handball4RO\Handball4RO
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Astazi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXN0YXppXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Cautare/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F1dGFyZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Clasament/AdaugaInCompetitie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2FtZW50XEFkYXVnYUluQ29tcGV0aXRpZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Clasament/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2FtZW50XEVkaXRlYXphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Competitii/Adauga.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpaVxBZGF1Z2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Competitii/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpaVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Competitii/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpaVxFZGl0ZWF6YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Competitii/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Competitii/Sterge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGV0aXRpaVxTdGVyZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Echipe/Adauga.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWNoaXBlXEFkYXVnYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Echipe/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWNoaXBlXEVkaXRlYXphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Echipe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWNoaXBlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Echipe/Sterge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWNoaXBlXFN0ZXJnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Jucatori/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVjYXRvcmlcRWRpdGVhemEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Jucatori/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVjYXRvcmlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Meciuri/Adauga.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjaXVyaVxBZGF1Z2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Meciuri/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjaXVyaVxFZGl0ZWF6YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Meciuri/Finalizeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjaXVyaVxGaW5hbGl6ZWF6YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Meciuri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVjaXVyaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Profil/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsXEVkaXRlYXphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Profil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Statistici/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGljaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Stiri/Adauga.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RpcmlcQWRhdWdhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Stiri/Editeaza.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RpcmlcRWRpdGVhemEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Stiri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RpcmlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Stiri/Sterge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RpcmlcU3RlcmdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Utilizatori/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGl6YXRvcmlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cumpa/source/repos/Handball4RO/Handball4RO/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-hw47tbc330
