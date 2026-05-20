@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Handball4RO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d1caadf6ddde840967d2826cd41b5e57778396b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4c929819fc2c7d0e0ddd7ac95c5d7ce90bd1f76")]
 [assembly: System.Reflection.AssemblyProductAttribute("Handball4RO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Handball4RO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

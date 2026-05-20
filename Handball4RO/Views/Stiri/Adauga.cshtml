@@ -9,7 +9,7 @@
         <div class="card shadow-sm border-0 p-4">
             <h3 class="fw-bold mb-4">Adaugă un articol nou</h3>
 
-            <form asp-action="Adauga" method="post">
+            <form asp-action="Adauga" method="post" enctype="multipart/form-data">
 
                 <div asp-validation-summary="All" class="text-danger fw-bold mb-3"></div>
 
@@ -20,8 +20,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="ImagineUrl" class="form-label fw-bold">Link Imagine (URL)</label>
-                    <input asp-for="ImagineUrl" class="form-control" placeholder="Ex: https://site.ro/imagine.jpg" />
+                    <label class="form-label fw-bold">Încarcă Imagine (din calculator)</label>
+                    <input type="file" name="fisierPoza" class="form-control" accept="image/*" />
+                    <small class="text-muted">Lasă gol dacă nu vrei să adaugi o imagine.</small>
                 </div>
 
                 <div class="mb-3">

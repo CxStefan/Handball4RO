@@ -26,7 +26,10 @@
                     <th>Scor</th>
                     <th class="text-start">Echipa Oaspete</th>
                     <th>Status</th>
-                    <th>Acțiuni</th>
+					@if (User.IsInRole("Admin"))
+                    {
+                        <th>Acțiuni</th>
+                    }
                 </tr>
             </thead>
             <tbody>
@@ -82,7 +85,7 @@
                                         🏁 Pune Scor
                                     </a>
                                 }
-                                else
+								else if (User.IsInRole("Admin"))
                                 {
                                     <span class="text-success fw-bold ms-2 align-self-center">✔ Încheiat</span>
                                 }

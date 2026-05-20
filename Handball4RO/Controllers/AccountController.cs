@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Handball4RO.Models;
 using Handball4RO.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Handball4RO.Controllers
 {
@@ -12,12 +13,36 @@ namespace Handball4RO.Controllers
         [HttpGet] public IActionResult Register() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Register(string email, string password)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            // Înregistrăm utilizatorul cu rolul de "User" implicit
-            var result = await _authService.RegisterAsync(email, password, "User");
-            if (result.Succeeded) return RedirectToAction("Login");
-            return View();
+            if (ModelState.IsValid)
+            {
+                var result = await _authService.RegisterAsync(model.Email, model.Password, "User");
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Login");
+                }
+                foreach (var error in result.Errors)
+                {
+                    if (error.Code == "DuplicateUserName" || error.Code == "DuplicateEmail")
+                    {
+                        ModelState.AddModelError(string.Empty, "Acest email este deja folosit de un alt cont.");
+                    }
+                    else if (error.Code.Contains("PasswordRequires") || error.Code == "PasswordTooShort")
+                    {
+                        ModelState.AddModelError(string.Empty, "Parola trebuie să aibă minim 6 caractere și să conțină o majusculă, o cifră și un caracter special (ex: @, #, !).");
+                        break;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+
+            return View(model);
         }
 
         [HttpGet] public IActionResult Login() => View();

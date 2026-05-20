@@ -1,25 +1,27 @@
 ﻿@model Handball4RO.Models.ProfilViewModel
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-5">
-        <div class="card shadow border-0 p-4">
-            <h4 class="fw-bold text-warning mb-4 text-center">✏️ Personalizează Profilul</h4>
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 p-4">
+            <h5 class="fw-bold text-warning mb-4 text-center">✏️ Personalizează Profilul</h5>
 
-            <form asp-action="Editeaza" method="post">
+            <form asp-action="Editeaza" method="post" enctype="multipart/form-data">
+
                 <div class="mb-3">
-                    <label class="form-label fw-bold">Numele tău complet sau porecla</label>
-                    <input asp-for="NumeComplet" class="form-control" placeholder="ex: Ion Popescu" />
+                    <label class="form-label small fw-bold text-muted mb-1">Numele tău sau porecla</label>
+                    <input asp-for="NumeComplet" class="form-control form-control-sm" placeholder="ex: Ion Popescu" />
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-bold">Link Poza de Profil (URL)</label>
-                    <input asp-for="PozaProfilUrl" class="form-control" placeholder="https://..." />
-                    <small class="text-muted">Lipește aici un link către o imagine de pe internet.</small>
+                    <label class="form-label small fw-bold text-muted mb-1">Poză de Profil</label>
+                    <input asp-for="FisierPoza" type="file" class="form-control form-control-sm" accept="image/*" />
+
+                    <input type="hidden" asp-for="PozaProfilUrl" />
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary fw-bold">💾 Salvează Modificările</button>
-                    <a asp-action="Index" class="btn btn-outline-secondary fw-bold">Anulează</a>
+                <div class="d-grid gap-2 mt-2">
+                    <button type="submit" class="btn btn-primary btn-sm fw-bold py-2 shadow-sm">💾 Salvează</button>
+                    <a asp-action="Index" class="btn btn-light btn-sm fw-bold py-2 text-muted">Anulează</a>
                 </div>
             </form>
         </div>

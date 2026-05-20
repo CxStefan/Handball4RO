@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Handball4RO.Models;
 using Handball4RO.Data;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+using System;
 
 namespace Handball4RO.Controllers
 {
@@ -13,11 +16,13 @@ namespace Handball4RO.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ProfilController(UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public ProfilController(UserManager<ApplicationUser> userManager, ApplicationDbContext context, IWebHostEnvironment env)
         {
             _userManager = userManager;
             _context = context;
+            _env = env;
         }
 
         [HttpGet]
@@ -35,7 +40,6 @@ namespace Handball4RO.Controllers
 
             return View(user);
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Editeaza()
@@ -62,7 +66,30 @@ namespace Handball4RO.Controllers
             if (user == null) return RedirectToAction("Login", "Account");
 
             user.NumeComplet = model.NumeComplet;
-            user.PozaProfilUrl = model.PozaProfilUrl;
+
+            if (model.FisierPoza != null && model.FisierPoza.Length > 0)
+            {
+                string folderProfil = Path.Combine(_env.WebRootPath, "images", "profil");
+
+                if (!Directory.Exists(folderProfil))
+                {
+                    Directory.CreateDirectory(folderProfil);
+                }
+
+                string numeFisier = Guid.NewGuid().ToString() + Path.GetExtension(model.FisierPoza.FileName);
+                string caleaCompleta = Path.Combine(folderProfil, numeFisier);
+
+                using (var stream = new FileStream(caleaCompleta, FileMode.Create))
+                {
+                    await model.FisierPoza.CopyToAsync(stream);
+                }
+
+                user.PozaProfilUrl = "/images/profil/" + numeFisier;
+            }
+            else
+            {
+                user.PozaProfilUrl = model.PozaProfilUrl;
+            }
 
             var result = await _userManager.UpdateAsync(user);
 

@@ -67,6 +67,8 @@ wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 wwwroot\styles\style.css
+wwwroot\images\profil\a45070ba-2dac-47a0-94ee-3babab0a4343.png
+wwwroot\images\profil\cd4a076c-1334-4390-91ed-479892552421.png
 C:\Users\cumpa\source\repos\Handball4RO\Handball4RO\wwwroot\css\site.css
 C:\Users\cumpa\source\repos\Handball4RO\Handball4RO\wwwroot\favicon.ico
 C:\Users\cumpa\source\repos\Handball4RO\Handball4RO\wwwroot\js\site.js
